@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST / DAY TO DAY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>TO DO LIST - DAY BY DAY</h1>
+<table>
+    <tr>
+        <td><select id="selectid">
+            <option value="mondaycontainer">Monday</option>
+            <option value="tuesdaycontainer">Tuesday</option>
+            <option value="wednesdaycontainer">Wednesday</option>
+            <option value="thursdaycontainer">Thursday</option>
+            <option value="fridaycontainer">Friday</option>
+            <option value="saturdaycontainer">Saturday</option>
+            <option value="sundaycontainer">Sunday</option>
+        </select></td>
+    </tr>
+    <tr><td><input id="inputid" type="text"></td></tr>
+    <tr><td><button onclick="addtask()">Add New Task</button></td></tr>
+</table>
+
+<div id="days">
+
+    <div id="mondaycontainer" class="daycontainer"><div id="Monday" class="myday">Monday</div></div>
+    <div id="tuesdaycontainer" class="daycontainer"><div id="Tuesday" class="myday">Tuesday</div></div>
+    <div id="wednesdaycontainer" class="daycontainer"><div id="Wednesday" class="myday">Wednesday</div></div>
+    <div id="thursdaycontainer" class="daycontainer"><div id="Thursday" class="myday">Thursday</div></div>
+    <div id="fridaycontainer" class="daycontainer"><div id="Friday" class="myday">Friday</div></div>
+    <div id="saturdaycontainer" class="daycontainer"><div id="Saturday" class="myday">Saturday</div></div>
+    <div id="sundaycontainer" class="daycontainer"><div id="Sunday" class="myday">Sunday</div></div>
+
+</div>
+
+</body>
+
+<script>
+
+alert("Choose your day. Enter your task and click add new task button. To delete any task, click on task. Have fun")
+
+function addtask() {
+
+const taskDay = document.getElementById("selectid").value;
+const newTask = document.getElementById("inputid").value;
+
+if ( newTask == "" ) {
+    alert("Please Enter a Task");
+}
+
+else {
+const newDiv = document.createElement("div");
+newDiv.classList.add("mydiv");
+document.getElementById(taskDay).appendChild(newDiv);
+newDiv.innerHTML = newTask ;
+
+
+newDiv.addEventListener("click", function() {
+    newDiv.remove();
+})
+
+}
+
+}
+
+</script>
+</html>
